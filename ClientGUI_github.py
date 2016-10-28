@@ -1,3 +1,7 @@
+#Implementation of chat client using wxpython and socket library.
+#Implemented by Aditya Kaushik(www.github.com/FuriousFlash) and Puja Kumari(www.github.com/PujaLuciX)
+#Further additions and improvements in progress.
+
 import wx
 import wx.richtext as rt
 import sys
