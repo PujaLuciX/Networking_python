@@ -10,7 +10,7 @@ import wx.richtext as rt
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = '192.168.1.100'
+host = ''
 port = 9999                                         
 
 # bind to the port
@@ -24,7 +24,7 @@ class Example(wx.Frame):
     global clientsocket
     def __init__(self, parent, title):
         super(Example, self).__init__(parent, title=title, 
-            size=(390, 350))
+            size=(450, 400))
             
         self.InitUI()
         self.Centre()
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     r=Example(None, title='Chat App')
         
 
-    # queue up to 5 requests
+    
     def GetConnected():
         serversocket.listen(5)                                           
         global clientsocket
@@ -120,7 +120,9 @@ if __name__ == '__main__':
                 r.tc2.WriteText(d.decode('ascii'))
                 r.tc2.Newline()
             except:
-                r.tc2.WriteText("DCED\n")
+                r.tc2.Newline()
+                r.tc2.WriteText("Disconnected")
+                r.tc2.Newline()
                 GetConnected()
         clientsocket.close()
 
