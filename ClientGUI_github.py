@@ -11,7 +11,7 @@ import thread
 # create a socket object
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 # get local machine name
-host = "192.168.1.100"                           
+host = ''                           
 port = 9999
 # connection to hostname on the port.
 s.connect((host, port))
@@ -82,7 +82,8 @@ def Receive():
         AppStart.myWindow.usertext.EndUnderline()
         AppStart.myWindow.usertext.WriteText("  ")
         AppStart.myWindow.usertext.WriteText(p.decode('ascii'))
-    #s.close()
+
+"""Needs to handle disconnection from the host, Recieve to be modified accordingly"""
     
 thread.start_new_thread(Receive,())
 AppStart.MainLoop()
